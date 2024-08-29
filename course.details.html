@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/src/output.css">
+    
+    <link rel="shortcut icon" href="/dist/images/ics 1.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Admin</title>
+
+    <style>
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class=" font-Poppins">
+    <nav class="fixed top-0 z-50 w-full bg-white border-b shadow-md navbar">
+        <div class="flex items-center w-full px-3 py-3 lg:px-5 lg:pl-3">
+            <button id="sidebar-toggle" class="inline-flex items-center p-2 text-sm text-gray-900 rounded-lg sm:hidden">
+                <span class="sr-only">Open sidebar</span>
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+            <div class="flex items-center flex-1 navbar-logo">
+                <a href="index.html">
+                    <img src="dist/images/Dv.svg" class="h-8 " alt="DevCount Logo" />
+                </a>
+            </div>
+            <div class="flex items-center">
+                <button type="button" id="user-menu-toggle" class="flex p-2 text-sm" aria-expanded="false">
+                    <span class="sr-only">Open user menu</span>
+                    <img class="w-8 h-8 rounded-full" src="/dist/backgrond/usr.png" alt="user photo">
+                    <p class="m-2 mt-1 mr-2">Haris Darmawan</p>
+                </button>
+
+            </div>
+        </div>
+    </nav>
+
+    <aside id="logo-sidebar"
+        class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 bg-white border-r shadow-md sidebar sidebar-closed"
+        aria-label="Sidebar">
+        <div class="h-full px-3 pb-4 mt-10 overflow-y-auto">
+            <img src="dist/backgrond/usr.png" alt="" class="">
+            <p class="font-bold text-center">Haris Darmawan</p>
+            <ul class="mt-4 space-y-2 font-medium">
+                <hr>
+                <li>
+                    <a href="overview.html" class="flex items-center p-2 text-gray-900 rounded-lg menu-item ">
+                        <img src="dist/icon/overview.svg" alt="Dashboard Icon">
+                        <span class="ms-3">Overview</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="dashboard.html" class="flex items-center p-2 text-gray-900 rounded-lg menu-item">
+                        <img src="dist/icon/course.svg" alt="Kanban Icon">
+                        <span class="flex-1 ms-3 whitespace-nowrap">Course</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="course.student.html" class="flex items-center p-2 text-gray-900 rounded-lg menu-item">
+                        <img src="dist/icon/students.svg" alt="Inbox Icon">
+                        <span class="flex-1 ms-3 whitespace-nowrap">Students</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="setting.html" class="flex items-center p-2 text-gray-900 rounded-lg menu-item">
+                        <img src="dist/icon/setting.svg" alt="Products Icon">
+                        <span class="flex-1 ms-3 whitespace-nowrap">Setting</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="dist/index.html" class="flex items-center p-2 text-gray-900 rounded-lg menu-item">
+                        <img src="dist/icon/logout.svg" alt="Sign Up Icon">
+                        <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <div class="p-4 mt-20 sm:ml-64">
+        <div class="flex flex-col">
+            <!-- Container for heading and description -->
+            <ul>
+                <li>
+                    <div class="breadcrumb  flex items-center gap-[20px]">
+                        <a href="overview.html" class="text-[#7F8190] last:text-[#0A090B] last:font-semibold">Overview</a>
+                        <span class="text-[#7F8190] last:text-[#0A090B]">/</span>
+                        <a href="dashboard.html" class="text-[#7F8190] last:text-[#0A090B] last:font-semibold">Manage Courses</a>
+                        <span class="text-[#7F8190] last:text-[#0A090B]">/</span>
+                        <a href="" class="text-[#7F8190] last:text-[#0A090B] last:font-bold">Course Details</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="p-4 mt-6 bg-white border rounded-lg shadow-md">
+            <div class="overflow-x-auto">
+                <div class="header ml-[70px] pr-[70px] w-[940px] flex items-center justify-between mt-10">
+                    <div class="flex items-center gap-6">
+                        <div class="w-[150px] h-[150px] flex shrink-0 relative overflow-hidden">
+                            <img src="dist/backgrond/bbv.png" class="object-cover w-full h-full rounded-full " alt="icon">
+                            <p class="p-[8px_16px] rounded-full bg-[#FFF2E6] font-bold text-sm text-[#F6770B] absolute bottom-0 transform -translate-x-1/2 left-1/2 text-nowrap">Product Design</p>
+                        </div>
+                        <div class="flex flex-col gap-5">
+                            <h1 class="font-extrabold text-[30px] leading-[45px]">Digital Marketing 101</h1>
+                            <div class="flex items-center gap-5">
+                                <div class="flex gap-[10px] items-center">
+                                    <div class="flex w-6 h-6 shrink-0">
+                                        <img src="dist/icon/date.svg" alt="icon">
+                                    </div>
+                                    <p class="font-semibold">22 August 2024</p>
+                                </div>
+                                <div class="flex gap-[10px] items-center">
+                                    <div class="flex w-6 h-6 shrink-0">
+                                        <img src="dist/icon/std.svg" alt="icon">
+                                    </div>
+                                    <p class="font-semibold">489,509 students</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <a href="#" id="more-button" class="toggle-button w-[46px] h-[46px] flex shrink-0 rounded-full items-center justify-center border border-[#EEEEEE]">
+                            <img src="dist/icon/pen.svg" alt="icon">
+                        </a>
+                        <div class="dropdown-menu absolute hidden right-0 top-[66px] w-[270px] flex flex-col gap-4 p-5 border border-[#EEEEEE] bg-white rounded-[18px] transition-all duration-300 shadow-[0_10px_16px_0_#0A090B0D]">
+                            <a href="add.students.html" class="flex gap-[10px] items-center">
+                                <div class="w-5 h-5">
+                                    <img src="dist/icon/add-usr.svg" alt="icon">
+                                </div>
+                                <span class="text-sm font-semibold">Add Students</span>
+                            </a>
+                            <a href="" class="flex gap-[10px] items-center">
+                                <div class="w-5 h-5">
+                                    <img src="dist/icon/card-add.svg" alt="icon">
+                                </div>
+                                <span class="text-sm font-semibold">Edit Course Details</span>
+                            </a>
+                            <a href="" class="flex gap-[10px] items-center">
+                                <div class="w-5 h-5">
+                                    <img src="dist/icon/upload.svg" alt="icon">
+                                </div>
+                                <span class="text-sm font-semibold">Upload Certificate</span>
+                            </a>
+                            <a href="" class="flex gap-[10px] items-center text-[#FD445E]">
+                                <div class="w-5 h-5">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17.5 4.98332C14.725 4.70832 11.9333 4.56665 9.15 4.56665C7.5 4.56665 5.85 4.64998 4.2 4.81665L2.5 4.98332" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M7.08325 4.14163L7.26659 3.04996C7.39992 2.25829 7.49992 1.66663 8.90825 1.66663H11.0916C12.4999 1.66663 12.6083 2.29163 12.7333 3.05829L12.9166 4.14163" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M15.7084 7.6167L15.1667 16.0084C15.0751 17.3167 15.0001 18.3334 12.6751 18.3334H7.32508C5.00008 18.3334 4.92508 17.3167 4.83341 16.0084L4.29175 7.6167" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M8.6084 13.75H11.3834" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M7.91675 10.4166H12.0834" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <span class="text-sm font-semibold">Delete Course</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="course-test" class="mx-[70px] w-[870px] mt-[30px]">
+                    <h2 class="text-2xl font-bold">Course Tests</h2>
+                    <div class="flex flex-col gap-[30px] mt-2">
+                        <a href="add.question.html" class="w-full h-[92px] flex items-center justify-center p-4 border-dashed border-2 border-[#0A090B] rounded-[20px]">
+                            <div class="flex items-center gap-5">
+                                <div>
+                                    <img src="dist/icon/plus.svg" alt="icon" class="w-[auto] h-[30px]">
+                                </div>
+                                <p class="text-xl font-bold">New Question</p>
+                            </div>
+                        </a>
+                        <div class="question-card w-full flex items-center justify-between p-4 border border-[#EEEEEE] rounded-[20px]">
+                            <div class="flex flex-col gap-[6px]">
+                                <p class="text-[#7F8190]">Question</p>
+                                <p class="text-xl font-bold">Why do we need to do marketing?</p>
+                            </div>
+                            <div class="flex items-center gap-[14px]">
+                                <a href="add.question.html" class="bg-[#258BFA] p-[14px_30px] rounded-full text-white font-semibold">Edit</a>
+                                <form action="">
+                                    <button class="w-[52px] h-[52px] flex shrink-0 items-center justify-center rounded-full bg-[#FD445E]">
+                                        <img src="dist/icon/trans.svg" alt="icon" class="w-[auto] h-[20px]">
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="question-card w-full flex items-center justify-between p-4 border border-[#EEEEEE] rounded-[20px]">
+                            <div class="flex flex-col gap-[6px]">
+                                <p class="text-[#7F8190]">Question</p>
+                                <p class="text-xl font-bold">Why do we need to do marketing?</p>
+                            </div>
+                            <div class="flex items-center gap-[14px]">
+                                <a href="add.question.html" class="bg-[#258BFA] p-[14px_30px] rounded-full text-white font-semibold">Edit</a>
+                                <form action="">
+                                    <button class="w-[52px] h-[52px] flex shrink-0 items-center justify-center rounded-full bg-[#FD445E]">
+                                        <img src="dist/icon/trans.svg" alt="icon" class="w-[auto] h-[20px]">
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="question-card w-full flex items-center justify-between p-4 border border-[#EEEEEE] rounded-[20px]">
+                            <div class="flex flex-col gap-[6px]">
+                                <p class="text-[#7F8190]">Question</p>
+                                <p class="text-xl font-bold">Why do we need to do marketing?</p>
+                            </div>
+                            <div class="flex items-center gap-[14px]">
+                                <a href="add.question.html" class="bg-[#258BFA] p-[14px_30px] rounded-full text-white font-semibold">Edit</a>
+                                <form action="">
+                                    <button class="w-[52px] h-[52px] flex shrink-0 items-center justify-center rounded-full bg-[#FD445E]">
+                                        <img src="dist/icon/trans.svg" alt="icon" class="w-[auto] h-[20px]">
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+
+    <script>
+        // Toggle sidebar visibility on mobile
+        document.getElementById('sidebar-toggle').addEventListener('click', function () {
+            const sidebar = document.getElementById('logo-sidebar');
+            sidebar.classList.toggle('sidebar-open');
+            sidebar.classList.toggle('sidebar-closed');
+        });
+
+        // Toggle user menu visibility
+        document.getElementById('user-menu-toggle').addEventListener('click', function () {
+            const menu = document.getElementById('dropdown-user');
+            menu.classList.toggle('show');
+        });
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuButton = document.getElementById('more-button');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+    
+        menuButton.addEventListener('click', function () {
+        dropdownMenu.classList.toggle('hidden');
+        });
+    
+        // Close the dropdown menu when clicking outside of it
+        document.addEventListener('click', function (event) {
+        const isClickInside = menuButton.contains(event.target) || dropdownMenu.contains(event.target);
+        if (!isClickInside) {
+            dropdownMenu.classList.add('hidden');
+        }
+        });
+    });
+</script>
+</body>
+
+</html>

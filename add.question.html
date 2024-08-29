@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/src/output.css">
+    <link rel="shortcut icon" href="/dist/images/ics 1.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Admin</title>
+
+    <style>
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class=" font-Poppins">
+    <nav class="fixed top-0 z-50 w-full bg-white border-b shadow-md navbar">
+        <div class="flex items-center w-full px-3 py-3 lg:px-5 lg:pl-3">
+            <button id="sidebar-toggle" class="inline-flex items-center p-2 text-sm text-gray-900 rounded-lg sm:hidden">
+                <span class="sr-only">Open sidebar</span>
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+            <div class="flex items-center flex-1 navbar-logo">
+                <a href="index.html">
+                    <img src="dist/images/Dv.svg" class="h-8 " alt="DevCount Logo" />
+                </a>
+            </div>
+            <div class="flex items-center">
+                <button type="button" id="user-menu-toggle" class="flex p-2 text-sm" aria-expanded="false">
+                    <span class="sr-only">Open user menu</span>
+                    <img class="w-8 h-8 rounded-full" src="dist/backgrond/usr.png" alt="user photo">
+                    <p class="m-2 mt-1 mr-2">Haris Darmawan</p>
+                </button>
+
+            </div>
+        </div>
+    </nav>
+
+    <aside id="logo-sidebar"
+        class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 bg-white border-r shadow-md sidebar sidebar-closed"
+        aria-label="Sidebar">
+        <div class="h-full px-3 pb-4 mt-10 overflow-y-auto">
+            <img src="dist/backgrond/usr.png" alt="" class="">
+            <p class="font-bold text-center">Haris Darmawan</p>
+            <ul class="mt-4 space-y-2 font-medium">
+                <hr>
+                <li>
+                    <a href="overview.html" class="flex items-center p-2 text-gray-900 rounded-lg menu-item ">
+                        <img src="dist/icon/overview.svg" alt="Dashboard Icon">
+                        <span class="ms-3">Overview</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="dashboard.html" class="flex items-center p-2 text-gray-900 rounded-lg menu-item">
+                        <img src="dist/icon/course.svg" alt="Kanban Icon">
+                        <span class="flex-1 ms-3 whitespace-nowrap">Course</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="course.student.html" class="flex items-center p-2 text-gray-900 rounded-lg menu-item">
+                        <img src="dist/icon/students.svg" alt="Inbox Icon">
+                        <span class="flex-1 ms-3 whitespace-nowrap">Students</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="setting.html" class="flex items-center p-2 text-gray-900 rounded-lg menu-item">
+                        <img src="dist/icon/setting.svg" alt="Products Icon">
+                        <span class="flex-1 ms-3 whitespace-nowrap">Setting</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="dist/index.html" class="flex items-center p-2 text-gray-900 rounded-lg menu-item">
+                        <img src="dist/icon/logout.svg" alt="Sign Up Icon">
+                        <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <div class="p-4 mt-20 sm:ml-64">
+        <div class="flex flex-col">
+            <!-- Container for heading and description -->
+            <ul>
+                <li>
+                    <div class="breadcrumb  flex items-center gap-[20px]">
+                        <a href="overview.html" class="text-[#7F8190] last:text-[#0A090B] last:font-semibold">Overview</a>
+                        <span class="text-[#7F8190] last:text-[#0A090B]">/</span>
+                        <a href="dashboard.html" class="text-[#7F8190] last:text-[#0A090B] last:font-semibold">Manage Courses</a>
+                        <span class="text-[#7F8190] last:text-[#0A090B]">/</span>
+                        <a href="course.student.html" class="text-[#7F8190] last:text-[#0A090B] last:font-semibold">Course Students</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="p-4 mt-6 bg-white border rounded-lg shadow-md">
+            <div class="overflow-x-auto">
+                <div class="header ml-[70px] pr-[70px] w-[940px] flex items-center justify-between mt-10">
+                    <div class="flex items-center gap-6">
+                        <div class="w-[150px] h-[150px] flex shrink-0 relative overflow-hidden">
+                            <img src="dist/backgrond/bbv.png" class="object-cover w-full h-full rounded-full " alt="icon">
+                        </div>
+                        <div class="flex flex-col gap-5">
+                            <h1 class="font-extrabold text-[30px] leading-[45px]">Digital Marketing 101</h1>
+                            <div class="flex items-center gap-5">
+                                <div class="flex gap-[10px] items-center">
+                                    <div class="flex w-6 h-6 shrink-0">
+                                        <img src="dist/icon/date.svg" alt="icon">
+                                    </div>
+                                    <p class="font-semibold">22 August 2024</p>
+                                </div>
+                                <div class="flex gap-[10px] items-center">
+                                    <div class="flex w-6 h-6 shrink-0">
+                                        <img src="dist/icon/std.svg" alt="icon">
+                                    </div>
+                                    <p class="font-semibold">489,509 students</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                  <form id="add-question" class="mx-[70px] mt-[30px] flex flex-col gap-5">
+                <h2 class="text-2xl font-bold">Add New Question</h2>
+                <div class="flex flex-col gap-[10px]">
+                    <p class="font-semibold">Question</p>
+                    <div class="flex items-center w-[500px] h-[52px] p-[14px_16px] rounded-full border border-[#EEEEEE] focus-within:border-2 focus-within:border-[#0A090B]">
+                        <div class="mr-[14px] w-6 h-6 flex items-center justify-center overflow-hidden">
+                            <img src="dist/icon/scol.svg" class="object-contain w-full h-full" alt="icon">
+                        </div>
+                        <input type="text" class="font-semibold placeholder:text-[#7F8190] placeholder:font-normal w-full outline-none" placeholder="Write the question" name="question">
+                    </div>
+                </div>
+                <div class="flex flex-col gap-[10px]">
+                    <p class="font-semibold">Answers</p>
+                    <div class="flex items-center gap-4">
+                        <div class="flex items-center w-[500px] h-[52px] p-[14px_16px] rounded-full border border-[#EEEEEE] focus-within:border-2 focus-within:border-[#0A090B]">
+                            <div class="mr-[14px] w-6 h-6 flex items-center justify-center overflow-hidden">
+                                <img src="dist/icon/bok.svg" class="object-contain w-full h-full" alt="icon">
+                            </div>
+                            <input type="text" class="font-semibold placeholder:text-[#7F8190] placeholder:font-normal w-full outline-none" placeholder="Write better answer option" name="answer-1">
+                        </div>
+                        <label class="font-semibold flex items-center gap-[10px]"
+                            ><input
+                            type="radio"
+                            name="correct"
+                            class="w-[24px] h-[24px] appearance-none checked:border-[3px] checked:border-solid checked:border-white rounded-full checked:bg-[#2B82FE] ring ring-[#EEEEEE]"
+                            />
+                            Correct
+                        </label>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="flex items-center w-[500px] h-[52px] p-[14px_16px] rounded-full border border-[#EEEEEE] focus-within:border-2 focus-within:border-[#0A090B]">
+                            <div class="mr-[14px] w-6 h-6 flex items-center justify-center overflow-hidden">
+                                <img src="dist/icon/bok.svg" class="object-contain w-full h-full" alt="icon">
+                            </div>
+                            <input type="text" class="font-semibold placeholder:text-[#7F8190] placeholder:font-normal w-full outline-none" placeholder="Write better answer option" name="answer-2">
+                        </div>
+                        <label class="font-semibold flex items-center gap-[10px]"
+                            ><input
+                            type="radio"
+                            name="correct"
+                            class="w-[24px] h-[24px] appearance-none checked:border-[3px] checked:border-solid checked:border-white rounded-full checked:bg-[#2B82FE] ring ring-[#EEEEEE]"
+                            />
+                            Correct
+                        </label>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="flex items-center w-[500px] h-[52px] p-[14px_16px] rounded-full border border-[#EEEEEE] focus-within:border-2 focus-within:border-[#0A090B]">
+                            <div class="mr-[14px] w-6 h-6 flex items-center justify-center overflow-hidden">
+                                <img src="dist/icon/bok.svg" class="object-contain w-full h-full" alt="icon">
+                            </div>
+                            <input type="text" class="font-semibold placeholder:text-[#7F8190] placeholder:font-normal w-full outline-none" placeholder="Write better answer option" name="answer-3">
+                        </div>
+                        <label class="font-semibold flex items-center gap-[10px]"
+                            ><input
+                            type="radio"
+                            name="correct"
+                            class="w-[24px] h-[24px] appearance-none checked:border-[3px] checked:border-solid checked:border-white rounded-full checked:bg-[#2B82FE] ring ring-[#EEEEEE]"
+                            />
+                            Correct
+                        </label>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="flex items-center w-[500px] h-[52px] p-[14px_16px] rounded-full border border-[#EEEEEE] focus-within:border-2 focus-within:border-[#0A090B]">
+                            <div class="mr-[14px] w-6 h-6 flex items-center justify-center overflow-hidden">
+                                <img src="dist/icon/bok.svg" class="object-contain w-full h-full" alt="icon">
+                            </div>
+                            <input type="text" class="font-semibold placeholder:text-[#7F8190] placeholder:font-normal w-full outline-none" placeholder="Write better answer option" name="answer-3">
+                        </div>
+                        <label class="font-semibold flex items-center gap-[10px]"
+                            ><input
+                            type="radio"
+                            name="correct"
+                            class="w-[24px] h-[24px] appearance-none checked:border-[3px] checked:border-solid checked:border-white rounded-full checked:bg-[#2B82FE] ring ring-[#EEEEEE]"
+                            />
+                            Correct
+                        </label>
+                    </div>
+                </div>
+                <a href="course.details.html" class="w-[500px] h-[52px] p-[14px_20px] bg-[#258BFA] rounded-full font-bold text-white transition-all duration-300 hover:shadow-[0_4px_15px_0_#6436F14D] text-center">Save Question</a>
+            </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+
+    <script>
+        // Toggle sidebar visibility on mobile
+        document.getElementById('sidebar-toggle').addEventListener('click', function () {
+            const sidebar = document.getElementById('logo-sidebar');
+            sidebar.classList.toggle('sidebar-open');
+            sidebar.classList.toggle('sidebar-closed');
+        });
+
+        // Toggle user menu visibility
+        document.getElementById('user-menu-toggle').addEventListener('click', function () {
+            const menu = document.getElementById('dropdown-user');
+            menu.classList.toggle('show');
+        });
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuButton = document.getElementById('more-button');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+    
+        menuButton.addEventListener('click', function () {
+        dropdownMenu.classList.toggle('hidden');
+        });
+    
+        // Close the dropdown menu when clicking outside of it
+        document.addEventListener('click', function (event) {
+        const isClickInside = menuButton.contains(event.target) || dropdownMenu.contains(event.target);
+        if (!isClickInside) {
+            dropdownMenu.classList.add('hidden');
+        }
+        });
+    });
+</script>
+</body>
+
+</html>

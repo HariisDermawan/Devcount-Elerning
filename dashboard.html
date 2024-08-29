@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/output.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="/dist/images/ics 1.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <title>Admin</title>
+
+    <style>
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class=" font-Poppins">
+    <nav class="fixed top-0 z-50 w-full bg-white border-b shadow-md navbar">
+        <div class="flex items-center w-full px-3 py-3 lg:px-5 lg:pl-3">
+            <button id="sidebar-toggle" class="inline-flex items-center p-2 text-sm text-gray-900 rounded-lg sm:hidden">
+                <span class="sr-only">Open sidebar</span>
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+            <div class="flex items-center flex-1 navbar-logo">
+                <a href="index.html">
+                    <img src="dist/images/Dv.svg" class="h-8 " alt="DevCount Logo" />
+                </a>
+            </div>
+            <div class="flex items-center">
+                <button type="button" id="user-menu-toggle" class="flex p-2 text-sm" aria-expanded="false">
+                    <span class="sr-only">Open user menu</span>
+                    <img class="w-8 h-8 rounded-full" src="dist/backgrond/usr.png" alt="user photo">
+                    <p class="m-2 mt-1 mr-2">Haris Darmawan</p>
+                </button>
+
+            </div>
+        </div>
+    </nav>
+
+    <aside id="logo-sidebar"
+        class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 bg-white border-r shadow-md sidebar sidebar-closed"
+        aria-label="Sidebar">
+        <div class="h-full px-3 pb-4 mt-10 overflow-y-auto">
+            <img src="dist/backgrond/usr.png" alt="" class="">
+            <p class="font-bold text-center">Haris Darmawan</p>
+            <ul class="mt-4 space-y-2 font-medium">
+                <hr>
+                <li>
+                    <a href="overview.html" class="flex items-center p-2 text-gray-900 rounded-lg menu-item ">
+                        <img src="dist/icon/overview.svg" alt="Dashboard Icon">
+                        <span class="ms-3">Overview</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg menu-item menu-item-active">
+                        <img src="dist/icon/course.svg" alt="Kanban Icon">
+                        <span class="flex-1 ms-3 whitespace-nowrap">Course</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="course.student.html" class="flex items-center p-2 text-gray-900 rounded-lg menu-item">
+                        <img src="dist/icon/students.svg" alt="Inbox Icon">
+                        <span class="flex-1 ms-3 whitespace-nowrap">Students</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg menu-item">
+                        <img src="dist/icon/setting.svg" alt="Products Icon">
+                        <span class="flex-1 ms-3 whitespace-nowrap">Setting</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="dist/index.html" class="flex items-center p-2 text-gray-900 rounded-lg menu-item">
+                        <img src="dist/icon/logout.svg" alt="Sign Up Icon">
+                        <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <div class="p-4 mt-20 sm:ml-64">
+        <div class="flex flex-col">
+            
+            <div class="flex items-center justify-between w-full">
+                <div class="flex flex-col gap-1">
+                    <p class="font-extrabold text-[30px] leading-[45px]">Manage Course</p>
+                    <p class="text-[#7F8190]">Provide high quality for best students</p>
+                </div>
+                <a href="create.html" class="h-[52px] p-[14px_20px] bg-[#258BFA] rounded-full font-bold text-white transition-all duration-300 hover:shadow-[0_4px_15px_0_#6436F14D]">Add New Course</a>
+            </div>
+        </div>
+
+        <div class="p-4 mt-6 bg-white border rounded-lg shadow-md">
+            <!-- Table inside card with horizontal scroll for small screens -->
+            <div class="overflow-x-auto">
+                <div class="course-list-container flex flex-col px-5 mt-[30px] gap-[30px]">
+                    <div class="course-list-header flex flex-nowrap justify-between pb-4 pr-10 border-b border-[#EEEEEE]">
+                        <div class="flex shrink-0 w-[300px]">
+                            <p class="text-[#7F8190]">Course</p>
+                        </div>
+                        <div class="flex justify-center shrink-0 w-[150px]">
+                            <p class="text-[#7F8190]">Date Created</p>
+                        </div>
+                        <div class="flex justify-center shrink-0 w-[170px]">
+                            <p class="text-[#7F8190]">Category</p>
+                        </div>
+                        <div class="flex justify-center shrink-0 w-[120px]">
+                            <p class="text-[#7F8190]">Action</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between pr-10 list-items flex-nowrap">
+                        <div class="flex shrink-0 w-[300px]">
+                            <div class="flex items-center gap-4">
+                                <div class="flex w-16 h-16 overflow-hidden rounded-full shrink-0">
+                                    <img src="dist/backgrond/bbv.png" class="object-cover w-full h-full rounded-full " alt="icon">
+                                </div>
+                                <div class="flex flex-col gap-[2px]">
+                                    <p class="text-lg font-bold">Interview</p>
+                                    <p class="text-[#7F8190]">Beginners</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex shrink-0 w-[150px] items-center justify-center">
+                            <p class="font-semibold">22 August 2024</p>
+                        </div>
+                        <div class="flex shrink-0 w-[170px] items-center justify-center">
+                            <p class="p-[8px_16px] rounded-full bg-[#FFF2E6] font-bold text-sm text-[#F6770B]">Product Design</p>
+                        </div>
+                        <div class="flex shrink-0 w-[120px] items-center">
+                            <div class="relative h-[41px]">
+                                <div class="menu-dropdown w-[120px] max-h-[41px] overflow-hidden absolute top-0 p-[10px_16px] bg-white flex flex-col gap-3 border border-[#EEEEEE] transition-all duration-300 hover:shadow-[0_10px_16px_0_#0A090B0D] rounded-[18px]">
+                                    <button onclick="toggleMaxHeight(this)" class="flex items-center justify-between w-full text-sm font-bold">
+                                        menu
+                                        <img src="dist/icon/circle-2.svg" alt="icon" class="w-[auto] h-[20px]">
+                                    </button>
+                                    <a href="course.details.html" class="flex items-center justify-between w-full text-sm font-bold">
+                                        Manage
+                                    </a>
+                                    <a href="course-students.html" class="flex items-center justify-between w-full text-sm font-bold">
+                                        Students
+                                    </a>
+                                    <a href="course.details.html" class="flex items-center justify-between w-full text-sm font-bold">
+                                        Edit Course
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between font-bold text-sm w-full text-[#FD445E]">
+                                        Delete
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between pr-10 list-items flex-nowrap">
+                        <div class="flex shrink-0 w-[300px]">
+                            <div class="flex items-center gap-4">
+                                <div class="flex w-16 h-16 overflow-hidden rounded-full shrink-0">
+                                    <img src="dist/backgrond/bbv.png" class="object-cover w-full h-full rounded-full " alt="icon">
+                                </div>
+                                <div class="flex flex-col gap-[2px]">
+                                    <p class="text-lg font-bold">Intro to Full-Stack</p>
+                                    <p class="text-[#7F8190]">Beginners</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex shrink-0 w-[150px] items-center justify-center">
+                            <p class="font-semibold">11 March 2024</p>
+                        </div>
+                        <div class="flex shrink-0 w-[170px] items-center justify-center">
+                            <p class="p-[8px_16px] rounded-full bg-[#EAE8FE] font-bold text-sm text-[#6436F1]">Programming</p>
+                        </div>
+                        <div class="flex shrink-0 w-[120px] items-center">
+                            <div class="relative h-[41px]">
+                                <div class="menu-dropdown w-[120px] max-h-[41px] overflow-hidden absolute top-0 p-[10px_16px] bg-white flex flex-col gap-3 border border-[#EEEEEE] transition-all duration-300 hover:shadow-[0_10px_16px_0_#0A090B0D] rounded-[18px]">
+                                    <button onclick="toggleMaxHeight(this)" class="flex items-center justify-between w-full text-sm font-bold">
+                                        menu
+                                        <img src="dist/icon/circle-2.svg" alt="icon" class="w-[auto] h-[20px]">
+                                    </button>
+                                    <a href="#" class="flex items-center justify-between w-full text-sm font-bold">
+                                        Manage
+                                    </a>
+                                    <a href="course-students.html" class="flex items-center justify-between w-full text-sm font-bold">
+                                        Students
+                                    </a>
+                                    <a href="course.details.html" class="flex items-center justify-between w-full text-sm font-bold">
+                                        Edit Course
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between font-bold text-sm w-full text-[#FD445E]">
+                                        Delete
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between pr-10 list-items flex-nowrap">
+                        <div class="flex shrink-0 w-[300px]">
+                            <div class="flex items-center gap-4">
+                                <div class="flex w-16 h-16 overflow-hidden rounded-full shrink-0">
+                                    <img src="dist/backgrond/bbv.png" class="object-cover w-full h-full rounded-full " alt="icon">
+                                </div>
+                                <div class="flex flex-col gap-[2px]">
+                                    <p class="text-lg font-bold">Digital Marketing 101</p>
+                                    <p class="text-[#7F8190]">Beginners</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex shrink-0 w-[150px] items-center justify-center">
+                            <p class="font-semibold">11 March 2024</p>
+                        </div>
+                        <div class="flex shrink-0 w-[170px] items-center justify-center">
+                            <p class="p-[8px_16px] rounded-full bg-[#D5EFFE] font-bold text-sm text-[#066DFE]">Marketing</p>
+                        </div>
+                        <div class="flex shrink-0 w-[120px] items-center">
+                            <div class="relative h-[41px]">
+                                <div class="menu-dropdown w-[120px] max-h-[41px] overflow-hidden absolute top-0 p-[10px_16px] bg-white flex flex-col gap-3 border border-[#EEEEEE] transition-all duration-300 hover:shadow-[0_10px_16px_0_#0A090B0D] rounded-[18px]">
+                                    <button onclick="toggleMaxHeight(this)" class="flex items-center justify-between w-full text-sm font-bold">
+                                        menu
+                                        <img src="dist/icon/circle-2.svg" alt="icon" class="w-[auto] h-[20px]">
+                                    </button>
+                                    <a href="#" class="flex items-center justify-between w-full text-sm font-bold">
+                                        Manage
+                                    </a>
+                                    <a href="course-students.html" class="flex items-center justify-between w-full text-sm font-bold">
+                                        Students
+                                    </a>
+                                    <a href="course.details.html" class="flex items-center justify-between w-full text-sm font-bold">
+                                        Edit Course
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between font-bold text-sm w-full text-[#FD445E]">
+                                        Delete
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between pr-10 list-items flex-nowrap">
+                        <div class="flex shrink-0 w-[300px]">
+                            <div class="flex items-center gap-4">
+                                <div class="flex w-16 h-16 overflow-hidden rounded-full shrink-0">
+                                    <img src="dist/backgrond/bbv.png" class="object-cover w-full h-full rounded-full " alt="icon">
+                                </div>
+                                <div class="flex flex-col gap-[2px]">
+                                    <p class="text-lg font-bold">Usability-Testing</p>
+                                    <p class="text-[#7F8190]">Beginners</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex shrink-0 w-[150px] items-center justify-center">
+                            <p class="font-semibold">30 June 2024</p>
+                        </div>
+                        <div class="flex shrink-0 w-[170px] items-center justify-center">
+                            <p class="p-[8px_16px] rounded-full bg-[#FFF2E6] font-bold text-sm text-[#F6770B]">Product Design</p>
+                        </div>
+                        <div class="flex shrink-0 w-[120px] items-center">
+                            <div class="relative h-[41px]">
+                                <div class="menu-dropdown w-[120px] max-h-[41px] overflow-hidden absolute top-0 p-[10px_16px] bg-white flex flex-col gap-3 border border-[#EEEEEE] transition-all duration-300 hover:shadow-[0_10px_16px_0_#0A090B0D] rounded-[18px]">
+                                    <button onclick="toggleMaxHeight(this)" class="flex items-center justify-between w-full text-sm font-bold">
+                                        menu
+                                        <img src="dist/icon/circle-2.svg" alt="icon" class="w-[auto] h-[20px]">
+                                    </button>
+                                    <a href="#" class="flex items-center justify-between w-full text-sm font-bold">
+                                        Manage
+                                    </a>
+                                    <a href="course-students.html" class="flex items-center justify-between w-full text-sm font-bold">
+                                        Students
+                                    </a>
+                                    <a href="course.details.html" class="flex items-center justify-between w-full text-sm font-bold">
+                                        Edit Course
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between font-bold text-sm w-full text-[#FD445E]">
+                                        Delete
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between pr-10 list-items flex-nowrap">
+                        <div class="flex shrink-0 w-[300px]">
+                            <div class="flex items-center gap-4">
+                                <div class="flex w-16 h-16 overflow-hidden rounded-full shrink-0">
+                                    <img src="dist/backgrond/bbv.png" class="object-cover w-full h-full rounded-full " alt="icon">
+                                </div>
+                                <div class="flex flex-col gap-[2px]">
+                                    <p class="text-lg font-bold">Web Development</p>
+                                    <p class="text-[#7F8190]">Beginners</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex shrink-0 w-[150px] items-center justify-center">
+                            <p class="font-semibold">30 June 2024</p>
+                        </div>
+                        <div class="flex shrink-0 w-[170px] items-center justify-center">
+                            <p class="p-[8px_16px] rounded-full bg-[#EAE8FE] font-bold text-sm text-[#6436F1]">Programming</p>
+                        </div>
+                        <div class="flex shrink-0 w-[120px] items-center">
+                            <div class="relative h-[41px]">
+                                <div class="menu-dropdown w-[120px] max-h-[41px] overflow-hidden absolute top-0 p-[10px_16px] bg-white flex flex-col gap-3 border border-[#EEEEEE] transition-all duration-300 hover:shadow-[0_10px_16px_0_#0A090B0D] rounded-[18px]">
+                                    <button onclick="toggleMaxHeight(this)" class="flex items-center justify-between w-full text-sm font-bold">
+                                        menu
+                                        <img src="dist/icon/circle-2.svg" alt="icon" class="w-[auto] h-[20px]">
+                                    </button>
+                                    <a href="#" class="flex items-center justify-between w-full text-sm font-bold">
+                                        Manage
+                                    </a>
+                                    <a href="course-students.html" class="flex items-center justify-between w-full text-sm font-bold">
+                                        Students
+                                    </a>
+                                    <a href="course.details.html" class="flex items-center justify-between w-full text-sm font-bold">
+                                        Edit Course
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between font-bold text-sm w-full text-[#FD445E]">
+                                        Delete
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="pagiantion" class="flex gap-4 items-center mt-[37px] px-5">
+                    <button class="flex items-center justify-center border border-[#EEEEEE] rounded-full w-10 h-10 font-semibold transition-all duration-300 hover:text-white hover:bg-[#0A090B] text-[#7F8190] bg-[#0A090B]">1</button>
+                    <button class="flex items-center justify-center border border-[#EEEEEE] rounded-full w-10 h-10 font-semibold transition-all duration-300 hover:text-white hover:bg-[#0A090B] text-[#7F8190]">2</button>
+                    <button class="flex items-center justify-center border border-[#EEEEEE] rounded-full w-10 h-10 font-semibold transition-all duration-300 hover:text-white hover:bg-[#0A090B] text-[#7F8190] ">3</button>
+                    <button class="flex items-center justify-center border border-[#EEEEEE] rounded-full w-10 h-10 font-semibold transition-all duration-300 hover:text-white hover:bg-[#0A090B] text-[#7F8190]">4</button>
+                    <button class="flex items-center justify-center border border-[#EEEEEE] rounded-full w-10 h-10 font-semibold transition-all duration-300 hover:text-white hover:bg-[#0A090B] text-[#7F8190]">5</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+
+    <script>
+        // Toggle sidebar visibility on mobile
+        document.getElementById('sidebar-toggle').addEventListener('click', function () {
+            const sidebar = document.getElementById('logo-sidebar');
+            sidebar.classList.toggle('sidebar-open');
+            sidebar.classList.toggle('sidebar-closed');
+        });
+
+        // Toggle user menu visibility
+        document.getElementById('user-menu-toggle').addEventListener('click', function () {
+            const menu = document.getElementById('dropdown-user');
+            menu.classList.toggle('show');
+        });
+    </script>
+
+<script>
+    function toggleMaxHeight(button) {
+        const menuDropdown = button.parentElement;
+        menuDropdown.classList.toggle('max-h-fit');
+        menuDropdown.classList.toggle('shadow-[0_10px_16px_0_#0A090B0D]');
+        menuDropdown.classList.toggle('z-10');
+    }
+
+    document.addEventListener('click', function(event) {
+        const menuDropdowns = document.querySelectorAll('.menu-dropdown');
+        const clickedInsideDropdown = Array.from(menuDropdowns).some(function(dropdown) {
+            return dropdown.contains(event.target);
+        });
+        
+        if (!clickedInsideDropdown) {
+            menuDropdowns.forEach(function(dropdown) {
+                dropdown.classList.remove('max-h-fit');
+                dropdown.classList.remove('shadow-[0_10px_16px_0_#0A090B0D]');
+                dropdown.classList.remove('z-10');
+            });
+        }
+    });
+</script>
+</body>
+
+</html>
